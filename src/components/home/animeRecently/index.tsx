@@ -21,7 +21,7 @@ const AnimeRecently: React.FC<Props> = ({ animeRecently }) => {
         <div className="bg-white">
             <div className="mx-auto max-w-2xl lg:max-w-7xl">
                 <h2 className="sr-only">Products</h2>
-                <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"> {/* xl:grid-cols-4 gap-x-6 gap-y-10 xl:gap-x-8*/}
                     {animeRecently.data && animeRecently.data.slice(3).map((product: AnimeService) => {
                         const parsedMeta = JSON.parse(product.meta);
                         return (

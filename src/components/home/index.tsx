@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AnimeRecently from './animeRecently';
 import SliderPage from './slider';
+import SideBarComponent from '../sideBar';
 
 type Props = {}
 
@@ -18,11 +19,17 @@ const HomePage = (props: Props) => {
             dispatch(animeRecentlyAction.animeRecentlyRequest())
         }
     }, [dispatch, animeRecently.data]);
-    console.log(animeRecently);
+
     return (
         <>
-            <SliderPage animeRecently={animeRecently} />
-            <AnimeRecently animeRecently={animeRecently} />
+            <div className='grid grid-cols-4 gap-4'>
+                <div className='grid gap-4 col-span-3'>
+                    <SliderPage animeRecently={animeRecently} />
+                    <AnimeRecently animeRecently={animeRecently} />
+                </div>
+                <div className="sidebar"><SideBarComponent /></div>
+            </div>
+
         </>
     );
 };

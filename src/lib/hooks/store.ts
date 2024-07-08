@@ -21,6 +21,10 @@ import animeSlugReducer from './schedule/animeSlug/slice'
 import animeVideoSaga from './schedule/animeVideo/saga'
 import animeVideoReducer from './schedule/animeVideo/slice'
 
+// Comment
+import animeCommentSaga from './comment/saga'
+import animeCommentReducer from './comment/slice'
+
 const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
@@ -30,7 +34,8 @@ export const store = configureStore({
         animeRecently: animeRecentlyReducer,
         animeCategory: animeCategoryReducer,
         animeSlug: animeSlugReducer,
-        animeVideo: animeVideoReducer
+        animeVideo: animeVideoReducer,
+        comment: animeCommentReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -45,6 +50,7 @@ sagaMiddleware.run(animeRecentlySaga)
 sagaMiddleware.run(animeCategorySaga)
 sagaMiddleware.run(animeSlugSaga)
 sagaMiddleware.run(animeVideoSaga)
+sagaMiddleware.run(animeCommentSaga)
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch

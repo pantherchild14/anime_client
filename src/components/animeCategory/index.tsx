@@ -18,7 +18,7 @@ const AnimeCategoryComponent: React.FC<AnimeCategoryProps> = ({ params }) => {
     const [currentPage, setCurrentPage] = useState(params.page);
     const dispatch = useDispatch<AppDispatch>();
     const animeCategory = useSelector((state: RootState) => state.animeCategory);
-    console.log(animeCategory.data)
+
     useEffect(() => {
         dispatch(animeCategoryAction.animeCategoryRequest({ params: { page: currentPage, limit: params.limit } }));
     }, [dispatch, currentPage, params.limit]);

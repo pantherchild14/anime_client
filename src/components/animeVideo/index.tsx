@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import VideoPlayerTV from '../selectVideo';
+import CommentComponent from '../comment';
 
 interface AnimeVideoProps {
     slug: string;
@@ -59,6 +60,13 @@ const AnimeVideoComponent: React.FC<AnimeVideoProps> = ({ slug, episode }) => {
         error: null,
     };
 
+    const formData = {
+        comment_post_id: animeVideo.data.anime_drive_id,
+        comment_author: "",
+        comment_content: "",
+        comment_type: "comment",
+        user_id: null
+    }
     return (
         <div className='hin-wraperAnime'>
             <div className='grid grid-cols-3 gap-4'>
@@ -109,6 +117,9 @@ const AnimeVideoComponent: React.FC<AnimeVideoProps> = ({ slug, episode }) => {
                             ))}
                         </div>
                     ) : null}
+                    <div className='hin-comment'>
+                        <CommentComponent formData={formData} />
+                    </div>
                 </div>
                 <div>side bar</div>
             </div>

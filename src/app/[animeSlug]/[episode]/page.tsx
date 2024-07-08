@@ -11,7 +11,6 @@ interface Props {
 const AnimeEpisodePage: React.FC<Props> = ({ params }: Props) => {
     const { animeSlug, episode } = params;
     return (
-        // <div>{`Anime Slug: ${animeSlug}, Episode: ${episode}`}</div>
         <AnimeVideoComponent slug={animeSlug} episode={episode} />
     );
 };
